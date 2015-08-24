@@ -1,5 +1,5 @@
 class Team < ActiveRecord::Base
   scope(:disqualified, -> do
-    where({:qualified => false})
+    where({:disqualified => false})
   end)
 end

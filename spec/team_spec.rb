@@ -7,7 +7,7 @@ describe(Team) do
       disqualified_team1 = Team.create({:team_name => "Mom's of Portland", :disqualified => false})
       disqualified_team2 = Team.create({:team_name => "Mom's of Beaverton", :disqualified => false})
       disqualified_teams = [disqualified_team1, disqualified_team2]
-      disqualified_team = Team.create({:team_name => "Status", :disqualified => true})
+      disqualified_team = Team.create({:team_name => "status", :disqualified => true})
       expect(Team.disqualified()).to(eq(disqualified_teams))
     end
   end
