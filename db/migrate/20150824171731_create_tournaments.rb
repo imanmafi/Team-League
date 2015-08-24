@@ -5,5 +5,7 @@ class CreateTournaments < ActiveRecord::Migration
 
       t.timestamps()
     end
+
+    add_column(:teams, :tournament_id, :integer)
   end
 end

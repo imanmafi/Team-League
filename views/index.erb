@@ -3,3 +3,11 @@
 <% @teams.each() do |teams| %>
   <li><%= teams.description %> <a href="/teams/<%= teams.id() %>/edit">Update this teams's name</a></li>
 <% end %>
+
+<p>Here are all your teams:</p>
+
+<ul>
+  <% @teams.not_done().each do |team| %>
+    <li><%= team.description %></li>
+  <% end %>
+</ul>

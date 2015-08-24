@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150824174000) do
     t.boolean  "disqualified"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tournament_id"
   end
 
   create_table "tournaments", force: :cascade do |t|
