@@ -12,6 +12,15 @@ describe(Team) do
     end
   end
 
+  describe("#players") do
+    it('tells what players are in the team') do
+      test_team = Team.create({:team_name => "Moms of Beaverton", :tournament_id => test_tournament.id})
+      test_player1 = Player.create({:player_name => "Hiraldo", :team_id => nil})
+      test_player2 = Player.create({:player_name => "Geraldo", :team_id => nil})
+      expect(test_team.players()).to(eq([test_player1, test_player2]))
+    end
+  end
+
   describe("#tournament") do
     it('tells which tournament the team belongs to') do
       test_tournament = Tournament.create({:tournament_name => "city tournament"})

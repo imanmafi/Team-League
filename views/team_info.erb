@@ -1,0 +1,39 @@
+<h1><%= @team.team_name() %></h1>
+
+<h3>Team Members:</h3>
+
+
+<h3>Select Tournaments this team will play:</h3>
+
+<% if @tournaments.any?() %>
+  <form action="/teams/<%= @team.id() %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <% @tournaments.each() do |tournament| %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="tournament_ids[]" value="<%= tournament.id() %>"><%= @tournament.tournament_name() %>
+        </label>
+      </div>
+    <% end %>
+
+    <button type="submit">Add Tournaments</button>
+  </form>
+
+<% else %>
+  <p>There are no tournaments to play yet.</p>
+<% end %>
+
+
+<% if @team.tournament().any?() %>
+
+  <h3>Here are all the tournaments for this team:</h3>
+
+  <ul>
+    <% @team.tournament().each() do |tournament| %>
+      <li><%= tournament.name() %></li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <p>There are no tournaments yet.</p> <a href="/tournaments">Add Tournaments Here</a>
+<% end %>

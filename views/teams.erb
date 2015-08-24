@@ -1,0 +1,33 @@
+
+<ul>
+  <% @teams.disqualified().each do |team| %>
+    <li><%= team.name %></li>
+  <% end %>
+</ul>
+
+<h1>Add Team:</h1>
+<form id="form_id" action="/teams" method="post" class="form-inline">
+  <div class="form-group">
+
+    <label for="team_name" class="sr-only">Team Name:</label>
+    <div class="input-group">
+      <input type="text" name="team_name" id="team_name" class='form-control' placeholder="Team name...">
+    </div>
+
+    <button class="btn" type="submit">Add Team</button>
+  </div>
+</form>
+
+
+
+<% if @teams.any?() %>
+
+  <ul>
+    <% @teams.each() do |team| %>
+      <li><a href="teams/<%= team.id()%>"><%= team.team_name() %></a></li>
+    <% end%>
+  </ul>
+
+<% else %>
+  <p>There are no teams yet.</p>
+<% end%>

@@ -1,4 +1,4 @@
-<h1>Update <%=@team.description() %> </h1>
+<h1>Update <%=@team.team_name() %> </h1>
 
 <form action="/teams/<%= @team.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
