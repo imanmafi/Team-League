@@ -1,0 +1,5 @@
+<h1>Soccer Mom League Manager</h1>
+
+<% @teams.each() do |teams| %>
+  <li><%= teams.description %> <a href="/teams/<%= teams.id() %>/edit">Update this teams's name</a></li>
+<% end %>
